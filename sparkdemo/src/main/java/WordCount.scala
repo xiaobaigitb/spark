@@ -32,9 +32,12 @@ object WordCount {
       println(rdd)
       //第四步：把rdd作为一个集合，进行各种运算
 
-      rdd.flatMap(line=>line.split(" ")).groupBy(x=>x)
+      rdd.flatMap(line=>line.split(" ")).map(x=>(x,1))
+        .reduceByKey((a,b)=>a+b)//直接通过这个来实现WordCount
+        .groupBy(x=>x)
         .map(kv=>(kv._1,kv._2.size))
-        .collect().foreach(println)
+        .saveAsTextFile("D:\\test\\rootDir\\wc")
+        //.collect().foreach(println)
 
     }
 }
