@@ -1,3 +1,4 @@
+import org.apache.commons.io.IOUtils
 import org.apache.spark.{SparkConf, SparkContext}
 
 /*
@@ -10,15 +11,16 @@ import org.apache.spark.{SparkConf, SparkContext}
 object SparkYarn {
   def main(args: Array[String]): Unit = {
     val sparkConf=new SparkConf()
-      /*.setMaster("yarn")
-      .setAppName("core")*/
+      .setMaster("local[*]")
+      .setAppName("core")
 
     val sc=new SparkContext(sparkConf)
 
     val rdd=sc.textFile("hdfs://192.168.228.13:9000/wc/")
     rdd.flatMap(line=>line.split(" "))
       .map(x=>(x,1))
-      .reduceByKey(_+_)
-      .saveAsTextFile("hdfs://192.168.228.13:9000/sparkwcout1/")
+      //.reduceByKey(_+_)
+      .reduceByKey((a,b)=>a+b)
+      .saveAsTextFile("hdfs://192.168.228.13:9000/sparkwcout/")
   }
 }

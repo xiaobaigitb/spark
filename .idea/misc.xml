@@ -4,6 +4,10 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/sparkdemo/pom.xml" />
+        <option value="$PROJECT_DIR$/sparksql/pom.xml" />
+        <option value="$PROJECT_DIR$/sparkstreaming/pom.xml" />
+        <option value="$PROJECT_DIR$/kafka/pom.xml" />
+        <option value="$PROJECT_DIR$/sparkmlib/pom.xml" />
       </list>
     </option>
   </component>

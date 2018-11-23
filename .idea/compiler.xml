@@ -6,11 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="kafka" />
         <module name="sparkdemo" />
+        <module name="sparkmlib" />
+        <module name="sparksql" />
+        <module name="sparkstreaming" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="kafka" target="1.5" />
       <module name="sparkdemo" target="1.5" />
+      <module name="sparkmlib" target="1.5" />
+      <module name="sparksql" target="1.5" />
+      <module name="sparkstreaming" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
